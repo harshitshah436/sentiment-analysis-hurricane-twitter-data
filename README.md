@@ -1,0 +1,4 @@
+# Sentiment Analysis of Twitter responses to First Responders during Hurricane Harvey and Irma
+
+### Project Description:
+This project is about analyzing the sentiment of people from their Twitter responses to First Responders during Hurricane Harvey and Hurricane Irma. A first responder is a person who is designated or trained to arrive at and assist at the emergency including Police Officer, Firefighter, Emergency Medical Technician, Animal Control Officer, National Guard, etc. The hurricane Harvey was intense during August 25, 2017, and August 26, 2017. The hurricane Irma is already a Category 5 as of date 9/5/2017. Using Twitter Search API, raw data will be collected during these hurricane periods. After preprocessing/cleaning data, it can be used to figure out people's sentiment regarding the rescue operations, help and activity of First Responders during different intervals (time periods) of the Hurricane.
