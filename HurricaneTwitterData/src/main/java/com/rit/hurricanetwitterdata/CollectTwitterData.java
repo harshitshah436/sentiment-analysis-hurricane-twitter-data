@@ -16,8 +16,7 @@ import twitter4j.TwitterObjectFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.conf.ConfigurationBuilder;
 import com.rit.constants.Constants;
-import java.io.IOException;
-import java.io.InputStream;
+import static com.rit.util.ApplicationUtility.getProperties;
 import java.util.Properties;
 
 /**
@@ -72,8 +71,8 @@ public class CollectTwitterData {
 
         QueryResult result = twitter.search(query);
 
-        // In one try, only limited number of tweets are retrieved. So 
-        // keep retrying until all tweets are received. 
+        // In one try, only limited number of tweets are retrieved. So
+        // keep retrying until all tweets are received.
         while (!result.getTweets().isEmpty()) {
             Long minId = Long.MAX_VALUE;
             Document document;
@@ -89,7 +88,9 @@ public class CollectTwitterData {
             try {
                 result = searchWithRetry(twitter, query);
             } catch (TwitterException ex) {
-                LOGGER.log(Level.SEVERE, null, ex);
+                LOGGER.log(Level.SEVERE, ex.getErrorMessage(), ex);
+                LOGGER.log(Level.INFO, "Thread is sleeping for 15 minutes. "
+                        + "Application will retry to make an API call after 15 minutes.");
                 Thread.sleep(15 * 60 * 1000); // sleep for 15 minutes
                 result = searchWithRetry(twitter, query);
             }
@@ -106,22 +107,5 @@ public class CollectTwitterData {
      */
     private static QueryResult searchWithRetry(Twitter twitter, Query query) throws TwitterException {
         return twitter.search(query);
-    }
-
-    /**
-     * Load properties by given file name from resources folder.
-     *
-     * @param FILE_NAME file name
-     * @return properties object containing all properties for given file name
-     */
-    public static Properties getProperties(String FILE_NAME) {
-        Properties prop = new Properties();
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        try (InputStream resourceStream = loader.getResourceAsStream(FILE_NAME)) {
-            prop.load(resourceStream);
-        } catch (IOException ex) {
-            Logger.getLogger(CollectTwitterData.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return prop;
     }
 }

@@ -41,5 +41,9 @@ public final class Constants {
         public static final String PORT = "port";
         public static final String DATABASE = "database";
         public static final String COLLECTION = "collection";
+        
+        // Data Cleaning related constants
+        public static final String CLEANED_COLLECTION = "cleanedcollection";
+        public static final String TWEET = "text";
     }
 }
