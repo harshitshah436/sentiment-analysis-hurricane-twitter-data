@@ -1,4 +1,4 @@
-package com.rit.hurricanetwitterdata;
+package edu.rit.hurricanetwitterdata;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -15,8 +15,8 @@ import twitter4j.TwitterFactory;
 import twitter4j.TwitterObjectFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.conf.ConfigurationBuilder;
-import com.rit.constants.Constants;
-import static com.rit.util.ApplicationUtility.getProperties;
+import edu.rit.constants.Constants;
+import static edu.rit.util.ApplicationUtility.getProperties;
 import java.util.Properties;
 
 /**

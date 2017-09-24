@@ -1,6 +1,6 @@
-package com.rit.util;
+package edu.rit.util;
 
-import com.rit.hurricanetwitterdata.CollectTwitterData;
+import edu.rit.hurricanetwitterdata.CollectTwitterData;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

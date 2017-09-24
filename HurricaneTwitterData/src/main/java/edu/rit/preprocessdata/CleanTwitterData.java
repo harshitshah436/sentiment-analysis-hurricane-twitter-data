@@ -1,11 +1,11 @@
-package com.rit.preprocessdata;
+package edu.rit.preprocessdata;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.rit.constants.Constants;
-import static com.rit.util.ApplicationUtility.getProperties;
+import edu.rit.constants.Constants;
+import static edu.rit.util.ApplicationUtility.getProperties;
 import com.twitter.Extractor;
 import java.util.ArrayList;
 import java.util.HashMap;
