@@ -1,4 +1,4 @@
-package edu.rit.hurricanetwitterdata;
+package edu.rit.collectdata;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
