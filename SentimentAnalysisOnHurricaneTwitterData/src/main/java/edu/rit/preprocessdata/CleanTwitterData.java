@@ -76,8 +76,19 @@ public class CleanTwitterData {
             tweet = tweet.replace(screenname, "");
         }
 
-        //remove @ from the tweet which will be left after removing usernames
-        tweet = tweet.replaceAll("@", "");
+        // Remove reply screenname/username
+        String replyScreenName = extractor.extractReplyScreenname(tweet);
+        if (replyScreenName != null) {
+            tweet = tweet.replaceAll(replyScreenName, "");
+        }
+
+        // Remove hashtag from the tweet
+        for (String hashtag : extractor.extractHashtags(tweet)) {
+            tweet = tweet.replace(hashtag, "");
+        }
+
+        //remove @ and # from the tweet which will be left after removing usernames
+        tweet = tweet.replaceAll("@|#", "");
 
         //remove punctuation
         tweet = tweet.replaceAll("\\p{Punct}+", "");
